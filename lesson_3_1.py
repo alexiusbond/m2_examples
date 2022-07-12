@@ -67,6 +67,10 @@ class ElectricCar(Car):
 class FuelCar(Car):
     __total_fuel = 500
 
+    def __init__(self, model, year, fuel_amount):
+        Car.__init__(self, model, year)
+        self.__fuel_amount = fuel_amount
+
     @staticmethod
     def print_fuel_type():
         print("AI 98")
@@ -76,10 +80,6 @@ class FuelCar(Car):
         cls.__total_fuel -= amount
         print(f'Total fuel remain: {cls.__total_fuel}')
         car.fuel_amount += amount
-
-    def __init__(self, model, year, fuel_amount):
-        Car.__init__(self, model, year)
-        self.__fuel_amount = fuel_amount
 
     @property
     def fuel_amount(self):
